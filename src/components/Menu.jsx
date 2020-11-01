@@ -11,7 +11,7 @@ function Menu () {
         <div className='inner'>
           <h3 className='masthead-brand'>Mikulášské odpoledne</h3>
           <nav className='nav nav-masthead justify-content-center'>
-            <NavLink className='nav-link' activeClassName='active' to='/'>Domů</NavLink>
+            <NavLink className='nav-link' activeClassName='active' exact to='/'>Domů</NavLink>
             <NavLink className='nav-link' activeClassName='active' to='/reservation'>Rezervace</NavLink>
             <NavLink className='nav-link' activeClassName='active' to='/feedback'>Zpětná vazba</NavLink>
             <NavLink className='nav-link' activeClassName='active' to='/poster'>Plakát</NavLink>
