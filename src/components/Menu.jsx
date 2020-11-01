@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, NavLink } from 'react-router-dom'
 import Home from '../pages/Home'
-import ReservationForm from './ReservationForm'
-import FeedbackForm from './FeedbackForm'
+import ReservationForm from '../pages/Reservation'
+import FeedbackForm from '../pages/Feedback'
 import Poster from './Poster'
 
 function Menu () {

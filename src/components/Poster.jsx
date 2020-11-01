@@ -1,9 +1,10 @@
 import React from 'react'
+import Heading from './Heading'
 
 export default function Poster () {
   return (
     <>
-      <h1 className='cover-heading'>Plakát</h1>
+      <Heading title='Plakát' />
       <p className='lead'>Ještě není hotový</p>
     </>
   )
