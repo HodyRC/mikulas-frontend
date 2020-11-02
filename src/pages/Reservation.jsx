@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Container, Col, Row, Spinner, Form, Button } from 'react-bootstrap'
+import { Alert, Container, Col, Spinner, Form, Button } from 'react-bootstrap'
 import config from '../config'
 import moment from 'moment'
 import Heading from '../components/Heading'
@@ -56,29 +56,49 @@ export default class ReservationForm extends React.Component {
         {this.heading}
         <p className='lead'>Pro vytvoření zpětné vazby vyplňte následující formulář</p>
         <Form>
-          <Row>
-            <Col>
+          <Form.Row>
+            <Col xs={12} lg={6}>
               <Form.Group controlId='firstname'>
                 <Form.Label>Křestní jméno</Form.Label>
-                <Form.Control type='text' placeholder='Josef' />
+                <Form.Control type='text' placeholder='František' />
                 <Form.Text className='text-white'>
-                  Sem prosím vložte křestní jméno dítěte
+                  Sem prosím vložte křestní jméno doprovodu
                 </Form.Text>
               </Form.Group>
             </Col>
-            <Col>
+            <Col xs={12} lg={6}>
               <Form.Group controlId='lastname'>
                 <Form.Label>Příjmení</Form.Label>
                 <Form.Control type='text' placeholder='Voprcálek' />
                 <Form.Text className='text-white'>
-                  Sem prosím vložte příjmení dítěte
+                  Sem prosím vložte příjmení doprovodu
                 </Form.Text>
               </Form.Group>
             </Col>
-          </Row>
+          </Form.Row>
+          <Form.Row>
+            <Col xs={12} lg={6}>
+              <Form.Group controlId='countOfKids'>
+                <Form.Label>Počet dětí</Form.Label>
+                <Form.Control type='number' placeholder='2' min='1' />
+                <Form.Text className='text-white'>
+                  Zde prosím vložte Váš počet dětí
+                </Form.Text>
+              </Form.Group>
+            </Col>
+            <Col xs={12} lg={6}>
+              <Form.Group controlId='countOfAdults'>
+                <Form.Label>Počet dospělých</Form.Label>
+                <Form.Control type='number' placeholder='1' min='0' />
+                <Form.Text className='text-white'>
+                  Zde prosím napište počet dospělých
+                </Form.Text>
+              </Form.Group>
+            </Col>
+          </Form.Row>
           <Form.Group controlId='email'>
             <Form.Label>Email</Form.Label>
-            <Form.Control type='email' placeholder='pepikova.maminka@gmail.com' />
+            <Form.Control type='email' placeholder='frantikova.maminka@gmail.com' />
             <Form.Text className='text-white'>
               Sem prosím vložte Vaši emailovou adresu
             </Form.Text>
