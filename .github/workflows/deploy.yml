@@ -15,10 +15,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Packages
-      run: npm install
+    - name: Configure custom domain
+      run: echo "mikulas.rudickamladez.online" >> CNAME
     - name: Copy config file
       run: cp src/config.sample.js src/config.js
+    - name: Install Packages
+      run: npm install
     - name: Build page
       run: npm run build
     - name: Deploy to gh-pages
