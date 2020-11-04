@@ -8,16 +8,19 @@ export default class ReservationForm extends React.Component {
   constructor (props) {
     super(props)
     this.heading = <Heading title='Rezervace' />
-    this.year = null
     this.state = {
-      loading: true
+      loading: true,
+      year: null
     }
   }
 
   async componentDidMount () {
-    const response = await fetch(config.api.url + 'year')
-    this.year = await response.json()
-    this.setState({ loading: false })
+    try {
+      const response = await fetch(config.api.url + 'year')
+      this.setState({ loading: false, year: await response.json() })
+    } catch (err) {
+      this.setState({ loading: false, error: err })
+    }
   }
 
   render () {
@@ -31,7 +34,18 @@ export default class ReservationForm extends React.Component {
       )
     }
 
-    if (!this.year) {
+    if (this.state.error) {
+      return (
+        <Container>
+          {this.heading}
+          <Alert variant='danger'>
+            <b>Ouha!</b> Nepodařilo se spojit se serverem, tudíž nelze vytvářet rezervace.
+          </Alert>
+        </Container>
+      )
+    }
+
+    if (!this.state.year) {
       return (
         <Container>
           {this.heading}
@@ -42,7 +56,7 @@ export default class ReservationForm extends React.Component {
       )
     }
 
-    if (moment().diff(this.year.reservations.end) >= 0) {
+    if (moment().diff(this.state.year.reservations.end) >= 0) {
       return (
         <Container>
           {this.heading}
@@ -54,7 +68,7 @@ export default class ReservationForm extends React.Component {
     return (
       <Container>
         {this.heading}
-        <p className='lead'>Pro vytvoření zpětné vazby vyplňte následující formulář</p>
+        <p className='lead'>Pro vytvoření rezervace vyplňte následující formulář</p>
         <Form>
           <Form.Row>
             <Col xs={12} lg={6}>
