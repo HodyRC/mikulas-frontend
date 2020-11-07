@@ -50,7 +50,18 @@ export default class ReservationForm extends React.Component {
         <Container>
           {this.heading}
           <Alert variant='danger'>
-            <b>Chyba!</b> Nepodařilo se dostat data ohledně ročníku ze serveru
+            <b>Chyba!</b> Nepodařilo se dostat data ohledně ročníku ze serveru, tudíž nelze vytvářet rezervace.
+          </Alert>
+        </Container>
+      )
+    }
+
+    if (!this.state.year.reservations) {
+      return (
+        <Container>
+          {this.heading}
+          <Alert variant='danger'>
+            <b>Chyba!</b> Nepodařilo se dostat data ohledně rezervací ze serveru, tudíž nelze vytvářet rezervace.
           </Alert>
         </Container>
       )
