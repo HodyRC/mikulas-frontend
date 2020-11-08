@@ -4,8 +4,8 @@ function Footer () {
       <div className='inner '>
         <p>Copyright &copy; 2018 - 2020<br />
           <a href='//lukasmatuska.cz' target='_blank' rel='noopener noreferrer'>Lukáš&nbsp;Matuška</a>
-          &nbsp;&&nbsp;
-          <a href='//rudickamladez.cz' target='_blank' rel='noopener noreferrer'>Rudická&nbsp;mládež</a>
+          &nbsp;pro&nbsp;
+          <a href='//rudickamladez.cz' target='_blank' rel='noopener noreferrer'>Rudickou&nbsp;mládež</a>
         </p>
       </div>
     </footer>
