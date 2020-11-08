@@ -1,6 +1,5 @@
 import React from 'react'
 import { Alert, Container, Spinner, Form, Button } from 'react-bootstrap'
-import config from '../config'
 import Heading from '../components/Heading'
 
 export default class Feedback extends React.Component {
@@ -16,8 +15,7 @@ export default class Feedback extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(config.api.url + 'year')
-      this.setState({ loading: false, year: await response.json() })
+      this.setState({ loading: false, year: global.session.year })
     } catch (err) {
       this.setState({ loading: false, error: err })
     }
@@ -26,7 +24,7 @@ export default class Feedback extends React.Component {
   async handleSubmit(event) {
     this.setState({ loading: true })
     try {
-      const response = await fetch(config.api.url + 'feedback', {
+      const response = await fetch(global.config.api.url + 'feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

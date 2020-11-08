@@ -1,6 +1,5 @@
 import React from 'react'
 import { Alert, Container, Col, Spinner, Form, Button } from 'react-bootstrap'
-import config from '../config'
 import moment from 'moment'
 import Heading from '../components/Heading'
 
@@ -9,15 +8,13 @@ export default class ReservationForm extends React.Component {
     super(props)
     this.heading = <Heading title='Rezervace' />
     this.state = {
-      loading: true,
-      year: null
+      loading: true
     }
   }
 
-  async componentDidMount () {
+   async componentDidMount () {
     try {
-      const response = await fetch(config.api.url + 'year')
-      this.setState({ loading: false, year: await response.json() })
+      this.setState({ loading: false, year: global.session.year })
     } catch (err) {
       this.setState({ loading: false, error: err })
     }
