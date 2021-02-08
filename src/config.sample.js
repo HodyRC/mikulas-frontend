@@ -1,7 +1,7 @@
 function config () {
   return ({
     api: {
-      url: 'https://mikulas.rudickamladez.cz/api/'
+      url: 'https://api.mikulas.rudickamladez.online/'
     }
   })
 }
