@@ -1,0 +1,5 @@
+[build]
+command = "cp src/config.sample.js src/config.js && npm i && npm run build"
+
+[context.production.environment]
+NODE_VERSION="16"
